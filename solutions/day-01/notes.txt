@@ -1,0 +1,768 @@
+/*
+ DAY_1 : JAVASCRIPT 
+
+0. Adding javaScript to project
+
+a.inline : using it as a attribute using javascript methords 
+        i.e.  <button onclick="alert('Welcome to 30DaysOfJavaScript!')">Click Me</button>
+              <tag    methord  function  
+           
+b.Internal: using script tag inside head or body
+        i.e.<head/body>   
+             <script>     </script>
+            <head/body />
+   
+c.External: using 'scr' attribute to script tag 
+        i.e.<script src="path"></script>   
+        
+d.Multiple: adding multiple script single project
+
+
+1. Variables
+
+a.let(block scope)   : can be redeclared 
+                    i.e.let b=10; //can be re-assigned only in a block
+
+b.const(block scope) : only be declared and defined once in a block
+                     i.e.const a = 9; // cant be redefined in a block
+
+c.var(function scope): can be redefined and redeclared in same block
+                    i.e.var c=10;  
+                        var c=13;   //can be re-dclared and redefined 
+
+NOTE : AVOID USING VAR --> AS IT MAY CAUSE BUGS AND ERRORS
+
+
+
+
+2. Data types(deafult values)
+
+primitive dataTypes      
+-null                -number(0)                 -function(null)
+-undefined           -string("")                -object(null)
+                     -boolean(false)                
+
+
+
+3. Array
+
+a.Array declaration
+  
+ i.constructor -  Array(size) or new Array(size)
+     
+ 
+
+ ii. intiallising - []
+       i.e. let arr = []  //initiallising empty array
+         
+         NOTE : ARRAY CAN CONTAIN DIFFERENT DATA TYPES
+        
+         let arr_2 = [
+          'name',                                 //Index 0 - String
+          200,                                    //Index 1 - Number
+          true,                                   //Index 2 - Boolean
+          { obj_name: 'myObject' , obj_size: 2},  //Index 3 - object
+         ]   NOTE : HERE WE USE INDEX AS OBJECT_NAME 
+                |
+             ACCESSING THE Array OBJECT PROPERTIES
+             console.log("array :" + arr_2[3].obj_name + "  " + "size :" + arr_2[3].obj_size)
+
+b.Array Methords
+  
+=>get the length of the array
+ i.   .length --> return the array length
+          ex. let arr1 = [1,2,3]
+            let arr2 = [4,5,6]
+
+
+ =>add element to the empty string    
+ii.   .fil() --> static value field + all ements are same --> array constructor + arry size --> declare an empty array
+       
+ 
+=>concardination two array
+iii.   .oncat(arr) --> arr1.concat(arr2) 
+            ex. const arr = arr1.concat(arr2) 
+
+=>get the index of the element in the array         
+ iv.  .indexOf(element) -->return the index if exist
+            ex. const index = arr.indexOf(2)
+
+ v.   .lastIndexof(element) --> return the index of last occurance if exist 
+                                otherwise return -1     
+            ex. const last_index = arr.lastIndexOf(3)  
+         
+=>convert the Array into String
+vi.   .toString() --> return a string that include all the array elements separated by commas(default)
+            ex. const string = arr.toString()   //default
+           
+vii.  .join(element) --> same as join but here we join the array elements using element
+            ex. const join = arr.join(' | ')
+
+=>check if the variable is array or not 
+viii. .Array.isArray(arr) --> return true/false 
+            ex. const if_array = Array.isArray(string)
+
+=>create a sub array using the slice - cut the array at indices
+ix. .slice(start,end)  --> return a sub-array that contain elemts from start-to-end index
+            ex. const sub_array = arr.slice(2,5)
+
+=>morififing set of elemts in the array 
+x.  .splice(start, deleteCount, item0, item1,  itemN) --> return the mordified array   
+            ex. const mod_array = arr.splice(2,2,4)         
+        
+=>check if the element exist
+xi.   .includes(element) --> return true/false
+            ex. const elemnt_exist = arr.include(10)                              
+
+=>insertion operation            
+xii.   .push(element) --> insert elemnt at the end
+            ex. arr.push(7)
+
+xiii.  .unshift(element) --> insert elemnt at the start
+            ex. arr.push(0)
+
+=>deletion operation 
+xiv.   .pop --> delet the the last element
+            ex. arr.pop 
+
+xv.    .shift --> delet the the beggning element
+            ex. arr.shift 
+
+=>reverse the array            
+xvi.   .reverse() -->reverse the array
+            ex. const reverse_arr = arr.reverse()
+          
+            
+  NOTE : ARRAY IN JAVASCRIPT ARE DYNAMIC
+
+
+PROGRAM 
+
+let arr1 = [1,2,3]
+let arr2 = [4,5,6]
+
+
+//concardinate the array 
+const arr = arr1.concat(arr2)
+
+//array length
+const length = arr.length
+
+//return the index 
+const index = arr.indexOf(2)
+
+//return the last index 
+const last_index = arr.lastIndexOf(3)
+
+//check if array is present 
+const element_present = arr.includes(10)
+
+//array to string 
+ //default
+const string = arr.toString()
+ 
+ //using join element 
+const join = arr.join(' | ')
+
+//check if variable is array 
+const if_array = Array.isArray(string)
+
+//sliice the array - creating the sub-array
+const sub_array = arr.slice(2,5)
+
+//splicing the array - creating modified sub-array
+const mod_array = arr.splice(2,0,4)
+
+//push operation
+arr.push(7)
+console.log("push 7 : " + arr)
+
+//pop operation
+arr.pop()
+console.log("pop 7 :" + arr)
+
+//shift operation
+arr.unshift(0)
+console.log("unshift 0 :" + arr)
+
+//unshift operation
+arr.shift()
+console.log("shift 0 :" + arr)
+
+//sorting elements in array
+arr.sort()
+console.log("sorted array array :" + arr)
+
+//reverse the array 
+const reverse = arr.reverse()
+
+// arrays in array
+let arrayInArray = [ arr, arr2]
+
+//display
+console.log(arr)
+
+console.log("Array length :" + length)
+console.log("Array index :" + index + "  and  last index :" + last_index)
+console.log("Element present in the array :" + element_present)
+console.log("String :" + string + "  and  using join operator :" + join)
+console.log("if the variable is array :" + if_array)
+console.log("sub array :" + sub_array + "   and   modified sub array :" + mod_array)
+
+console.log("reversed array :" + reverse)
+console.log("array in array :" + arrayInArray)
+
+
+
+
+                */
+
+ 
+/*
+4. CONDITIONALS
+
+if
+// syntax
+if (condition) {
+  //this part of code runs for truthy condition
+}
+
+
+if else
+// syntax
+if (condition) {
+  // this part of code runs for truthy condition
+} else {
+  // this part of code runs for false condition
+}
+
+if else if else
+// syntax
+if (condition) {
+  // code
+} else if (condition) {
+  // code
+} else {
+  //  code
+}
+
+
+switch
+switch (caseValue) {
+  case 1:
+    // code
+    break
+  case 2:
+    // code
+    break
+  case 3:
+  // code
+  default:
+  // code
+}
+
+ternary operator
+let isRaining = true
+isRaining
+  ? console.log('You need a rain coat.')
+  : console.log('No need for a rain coat.')
+
+*/
+
+
+// 5. LOOPS
+/*
+for
+
+syntax:
+for (initialization, condition, increment/decrement) {
+    code goes here
+}
+
+
+while : Regular for loop can be used anywhere when the number of iteration is known.
+
+synatx:
+intiallisation
+while (condition) {
+  code 
+  update
+}
+
+
+do while : While loop when the number of iteration is not know
+
+syntax:
+initialization
+do {
+    code
+    updation
+  } while (condition)
+
+
+
+note:Do while loop and while loop are almost the same but do while loop run at least once even when the condition is false
+
+
+for of : for of is used only for array
+
+syntax:
+
+for (initiallisation of array_name) {
+    console.log(itterator)
+  }
+
+
+forEach : forEach is used for array
+
+syntax:
+array_name.forEach((itterator) => {
+    console.log(itterator)
+  })
+
+for in :for in is used for object
+
+syntax:
+for (const key in user) {
+    console.log(key, user[key])
+  }
+
+
+
+  control statements
+
+  i. break : Break is used to interrupt a loop.
+ ii. continue:We use the keyword continue to skip a certain iterations.
+
+
+
+ //6.Scope 
+ note :  Anything declared without let, var or const is scoped at window level.
+ 
+
+ Window : In web browser enviroment , variables declared in the global scope are accessible as properties of the window object.
+ Global : these are variable decare in the global scope  
+  Local : these are varible declare inside block of ConvolverNode
+ 
+ 
+  ACCESS SPECIFIER 
+   
+  var : can be redecalred and redefined 
+ after ES6,
+  let : can be redefined , block scoped
+  const : fixed , block scope
+ 
+ 
+ 
+  7.OBJECTS
+ 
+  a. declaration of the object 
+     
+     i. empty object
+        const emp_object = {}
+ 
+     ii.object 
+        const object = {
+         objNmae : 'name',
+         objSize : 23,
+         nestedObj: {
+             obj : 'nested object',
+             objSize : 34,
+         array : [1,2,3,4],    
+         },
+         
+        }
+ 
+        
+  b. accessing the object methord 
+    
+  const object = {
+     key : 'value',
+     objNmae : 'name',
+     objSize : 23,
+     nestedObj: {
+         obj : 'nested object',
+         objSize : 34,
+     array : [1,2,3,4],    
+     },
+     fun : function() {
+         console.log('access the methord nested object' + this.nestedObj.objSize);
+         console.log('access the methord object' + this.objSize);
+     },
+ };
+ 
+     Methord 1 :accessing the methord pf the object using . operator
+                object.fun()
+ 
+     Methord 2: using the [' ']
+               console.log(object['key'])
+ 
+  c. creating the object methord
+ 
+  NOTE : We can not use an arrow function as object method because the word this refers to the window inside an arrow function instead of the object itself.
+     
+ 
+ 
+     const object = {
+     key : 'value',
+     objName : 'name',
+     objSize : 23,               NOTE :` ${} ` - CREATE A STRING
+     nestedObj: {
+         obj : 'nested object',
+         objSize : 34,
+     array : [1,2,3,4],    
+     },
+     fun : function() {
+         console.log('access the methord nested object' + this.nestedObj.objSize);
+         console.log('access the methord object' + this.objSize);
+     },
+     methord: function() {
+         return ` ${this.objName} ${this.objSize} `
+     },
+ };
+ 
+ 
+ console.log(object.methord())
+ 
+ 
+ d. redefining the object
+   
+   i.variable.
+    object.objName = 'new name '
+    object.objSize = 22
+ 
+   ii.methord.
+    object.newMethord = function() {
+       return 'hello world ';
+     }
+ 
+ 
+  e. object methord
+ 
+     Copy an object
+      i. Object.assign(target, source1, source2, ...): To copy an object without modifying the original object
+ 
+     Getting object keys
+      ii.Object.keys(object_name): To get the keys or properties of an object as an array
+ 
+     Getting object values 
+      iii.Object(object_name).values: To get values of an object as an array                
+ 
+     Getting object keys and values
+      iv.Object.entries(object_name):To get the keys and values in an array
+ 
+     Checking properties
+      v.hasOwnProperty('property_name'): To check if a specific key or property exist in an object
+ 
+*/ 
+
+// 5. LOOPS
+/*
+for
+
+syntax:
+for (initialization, condition, increment/decrement) {
+    code goes here
+}
+
+
+while : Regular for loop can be used anywhere when the number of iteration is known.
+
+synatx:
+intiallisation
+while (condition) {
+  code 
+  update
+}
+
+
+do while : While loop when the number of iteration is not know
+
+syntax:
+initialization
+do {
+    code
+    updation
+  } while (condition)
+
+
+
+note:Do while loop and while loop are almost the same but do while loop run at least once even when the condition is false
+
+
+for of : for of is used only for array
+
+syntax:
+
+for (initiallisation of array_name) {
+    console.log(itterator)
+  }
+
+
+forEach : forEach is used for array
+
+syntax:
+array_name.forEach((itterator) => {
+    console.log(itterator)
+  })
+
+for in :for in is used for object
+
+syntax:
+for (const key in user) {
+    console.log(key, user[key])
+  }
+
+
+
+  control statements
+
+  i. break : Break is used to interrupt a loop.
+ ii. continue:We use the keyword continue to skip a certain iterations.
+
+
+
+   6.Scope 
+ note :  Anything declared without let, var or const is scoped at window level.
+ 
+
+ Window : In web browser enviroment , variables declared in the global scope are accessible as properties of the window object.
+ Global : these are variable decare in the global scope  
+  Local : these are varible declare inside block of ConvolverNode
+ 
+ 
+  ACCESS SPECIFIER 
+   
+  var : can be redecalred and redefined 
+ after ES6,
+  let : can be redefined , block scoped
+  const : fixed , block scope
+ 
+ 
+ 
+  7.OBJECTS
+ 
+  a. declaration of the object 
+     
+     i. empty object
+        const emp_object = {}
+ 
+     ii.object 
+        const object = {
+         objNmae : 'name',
+         objSize : 23,
+         nestedObj: {
+             obj : 'nested object',
+             objSize : 34,
+         array : [1,2,3,4],    
+         },
+         
+        }
+ 
+        
+  b. accessing the object methord 
+    
+  const object = {
+     key : 'value',
+     objNmae : 'name',
+     objSize : 23,
+     nestedObj: {
+         obj : 'nested object',
+         objSize : 34,
+     array : [1,2,3,4],    
+     },
+     fun : function() {
+         console.log('access the methord nested object' + this.nestedObj.objSize);
+         console.log('access the methord object' + this.objSize);
+     },
+ };
+ 
+     Methord 1 :accessing the methord pf the object using . operator
+                object.fun()
+ 
+     Methord 2: using the [' ']
+               console.log(object['key'])
+ 
+  c. creating the object methord
+ 
+  NOTE : We can not use an arrow function as object method because the word this refers to the window inside an arrow function instead of the object itself.
+     
+ 
+ 
+     const object = {
+     key : 'value',
+     objName : 'name',
+     objSize : 23,               NOTE :` ${} ` - CREATE A STRING
+     nestedObj: {
+         obj : 'nested object',
+         objSize : 34,
+     array : [1,2,3,4],    
+     },
+     fun : function() {
+         console.log('access the methord nested object' + this.nestedObj.objSize);
+         console.log('access the methord object' + this.objSize);
+     },
+     methord: function() {
+         return ` ${this.objName} ${this.objSize} `
+     },
+ };
+ 
+ 
+ console.log(object.methord())
+ 
+ 
+ d. redefining the object
+   
+   i.variable.
+    object.objName = 'new name '
+    object.objSize = 22
+ 
+   ii.methord.
+    object.newMethord = function() {
+       return 'hello world ';
+     }
+ 
+ 
+  e. object methord
+ 
+     Copy an object
+      i. Object.assign(target, source1, source2, ...): To copy an object without modifying the original object
+ 
+     Getting object keys
+      ii.Object.keys(object_name): To get the keys or properties of an object as an array
+ 
+     Getting object values 
+      iii.Object(object_name).values: To get values of an object as an array                
+ 
+     Getting object keys and values
+      iv.Object.entries(object_name):To get the keys and values in an array
+ 
+     Checking properties
+      v.hasOwnProperty('property_name'): To check if a specific key or property exist in an object
+ 
+ // 8.FUNCTIONS
+
+  a. features 
+     clean and easy to read
+     reusable
+     easy to test
+
+
+  b.Function decalation
+  
+  i.  Declaration function
+      =>declaring a function without a parameter
+
+       i. function without parameter and return type
+          function functionName() {
+            // code goes here
+          }
+
+       ii.Function with a parameter
+           function functionName(par1,par2,...,parN) {
+            // code goes here   
+          }   
+
+       iii.Function with a return value 
+            function functionName() {
+            // code goes here
+            return value
+          }  
+
+        iv.Function with default parameters
+            function functionName(param = value) {
+                 //codes
+            }  
+
+       NOTE : ulimited parameter
+              
+              a.function declaration provides a function scoped arguments array like object.
+                 ex.​
+                    function sumAllNums() {
+                     console.log(arguments)
+                    }
+                    
+                    sumAllNums(1, 2, 3, 4)
+
+              b. arrow function   unlimited number of arguments in an arrow function we use spread operator followed by any parameter name   
+                 Any thing we passed as argument in the function can be accessed as array in the arrow function
+                 ex. const sumAllNums = (...args) => {
+                      // console.log(arguments), arguments object not found in arrow function
+                      // instead we use an a parameter followed by spread operator
+                      console.log(args)
+                     }
+                     
+                     sumAllNums(1, 2, 3, 4)
+
+              
+       
+  ii.  Expression function
+        Expression functions are anonymous functions. After 
+        we create a function without a name and we assign it to a variable.
+        To return a value from the function we should call the variable
+       
+
+
+  
+  iii. Anonymous function
+        Anonymous function or without name
+
+  iv.  Arrow function
+  v.Self Invoking Functions
+    Self invoking functions are anonymous functions which do not need to be 
+    called to return a value.
+    ex.;(function (n) {
+          console.log(n * n)
+         })(parameter)
+
+
+
+9 . HIGHER ORDER FUNCTIONS
+
+
+a. Callback function : functions passed as parameter 
+
+b. Returning function :higher order function return function as a values
+
+c. Setting Time  :schedule the activity or eventin js
+    
+   i. setINterval - take two parameter 
+                    i. callback function : call this function 
+                    ii. duration : call the callback function afte the given duration
+                  keep showing the output after fixed interval
+
+      // syntax
+        function callback() {
+          // code goes here
+        }
+        setInterval(callback, duration)
+        
+  ii. setTimeout - take two parameter 
+                    i. callback function : call this function 
+                    ii. duration : call the callback function afte the given duration
+                   showing the output after fixed interval and terminate the program
+    // syntax
+       function callback() {
+         // code goes here
+       }
+        setTimeout(callback, duration) // duration in milliseconds
+
+   
+
+10. Destructing 
+
+def : unpack arrays, and objects and assigning to a distinct variable
+
+
+a. destructing the array 
+
+
+
+
+
+
+
+
+
+
+*/
